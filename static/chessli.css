@@ -112,16 +112,17 @@ body {
 
 /* CUSTOM STYLES */
 
-#url-textbox { 
+#url-textbox {
     color: #5fd787;
     border: 2px solid;
     padding: 0.5em 1em;
     font-size: 1.25em;
     opacity: 100%;
-    border-radius: 0.5em
+    border-radius: 0.5em;
+    opacity: 0%;
 }
 
-#no-user { 
+#no-user {
     color: #ff5f5f;
     border: 2px solid;
     padding: 0.5em 1em;

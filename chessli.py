@@ -1,3 +1,4 @@
+""" base Flask app for Chessli """
 from flask import Flask, render_template, request
 from chessli_lib import get_lichess_url_bash
 
