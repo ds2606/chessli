@@ -1,8 +1,8 @@
 // get most recent game info from backend and update view
 function updateView() {
+    $("#url-textbox").animate({opacity: 0});
     let userfield = document.getElementById("username");
     if (userfield.value) {
-        $("#url-textbox").animate({opacity: 0});
         $.get("/returnAJAX?username=" + userfield.value, function(payload, status){
             data = jQuery.parseJSON(payload)
             if (data.error) {
@@ -20,7 +20,7 @@ function updateView() {
         });
         // do this without settimeout when I learn more about js
     } else {
-        $("#url-textbox").animate({opacity: 0});
+        setTimeout(() => { $("#url-textbox").html('&nbsp;'); }, 500)
     }
 }
 
