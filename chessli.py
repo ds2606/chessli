@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from chessli_lib import get_lichess_url
+from chessli_lib import get_lichess_url_bash
 
 # Create Flask's `app` object
 app = Flask(
@@ -11,10 +11,6 @@ app = Flask(
 def base():
     return render_template('index.html')
 
-@app.route('/geturl')
-def chessli():
-    return get_lichess_url('rasusu')
-
-@app.route('/fade')
-def fade():
-    return render_template('fade.html')
+@app.route('/returnAJAX')
+def returnAJAX():
+    return get_lichess_url_bash('rasusu')

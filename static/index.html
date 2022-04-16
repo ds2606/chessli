@@ -1,41 +1,19 @@
-<!-- <!DOCTYPE html> -->
-<!-- <html lang="en"> -->
-<!--     <head> -->
-<!--         <meta charset="UTF-8"> -->
-<!--         <title>ajax test</title> -->
-<!--         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-<!--         <script> -->
-<!--             $(document).ready(function(){ -->
-<!--                 $("button").click(function(){ -->
-<!--                     $.get("demo_test.asp", function(data, status){ -->
-<!--                         alert("Data: " + data + "\nStatus: " + status); -->
-<!--                     }); -->
-<!--                 }); -->
-<!--             }); -->
-<!--         </script> -->
-<!--     </head> -->
-<!--     <body> -->
-<!--         Hello World -->
-<!--         <button>test ajax</button> -->
-<!--     </body> -->
-<!-- </html> -->
-<!DOCTYPE html>
 <html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("button").click(function(){
-    $.getJSON("https://api.chucknorris.io/jokes/random", function(data, status){
-        alert(JSON.stringify(data));
-    });
-  });
-});
-</script>
-</head>
-<body>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("button").click(function(){
+                    $.get("/returnAJAX", function(data, status){
+                        $("div").html(data);
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
 
-<button>Send an HTTP GET request to a page and get the result back</button>
-<div>lalala</div>
-</body>
+        <button>Send an HTTP GET request to a page and get the result back</button>
+        <div>lalala</div>
+    </body>
 </html>
