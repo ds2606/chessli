@@ -1,26 +1,31 @@
-import sys
+""" Chessli libary for Chess.com/Lichess API interaction """
+import json
 import requests
 
 
-
-import subprocess as sp
-def get_lichess_url(player):
+def get_lastgame_json(player):
     archiveAPI = "https://api.chess.com/pub/player/" + player + "/games/archives"
-    # gamesAPI=$(curl -s "$archiveAPI" | jq -r '.archives | .[-1]')
-    # grep -q "null" <<< "$gamesAPI" && echo "user '$player' not found." && exit 1
-    # importAPI="https://lichess.org/api/import"
-    # PGN=$(curl -s "$gamesAPI" | jq '.games | .[-1] | {"pgn": .pgn}')
-    # gameURL=$(curl -s -X POST -H 'Content-Type: application/json' -d "$PGN" $importAPI)
-    # jq -r '. | .url' <<< "$gameURL" | xargs open
+    try:
+        recentGamesAPI = requests.get(archiveAPI).json()['archives'][-1]
+    except KeyError:
+        # TODO signal error if user not found
+        return 'no no no bad bad bad'
+    game = requests.get(recentGamesAPI).json()['games'][-1]
 
+    importAPI = "https://lichess.org/api/import"
+    gameURL = requests.post(importAPI, data={'pgn': game['pgn']}).json()['url']
 
+    payload = {
+        'white': game['white']['username'],
+        'black': game['black']['username'],
+        'timecntl': game['time_control'],
+        'timecls': game['time_class'],
+        'link': gameURL
+    }
+    return json.dumps(payload)
+
+# deprecated, just used for testing (gets lichess URL for chess.com user)
 def get_lichess_url_bash(player):
+    import subprocess as sp
     p = sp.run(["./chessli.bash", player], check=True, capture_output=True)
     return p.stdout.decode().strip()
-
-
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: chessli <user> [n'th recent game (default: 1)]")
-        sys.exit(0)
-

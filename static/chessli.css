@@ -118,6 +118,7 @@ body {
     padding: 0.5em 1em;
     font-size: 1.25em;
     opacity: 100%;
+    border-radius: 0.5em
 }
 
 #no-user { 
