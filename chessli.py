@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from chessli_lib import get_lichess_url_bash
 
 # Create Flask's `app` object
@@ -13,4 +13,4 @@ def base():
 
 @app.route('/returnAJAX')
 def returnAJAX():
-    return get_lichess_url_bash('rasusu')
+    return get_lichess_url_bash(request.args['username'])

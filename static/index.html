@@ -4,16 +4,24 @@
         <script>
             $(document).ready(function(){
                 $("button").click(function(){
-                    $.get("/returnAJAX", function(data, status){
-                        $("div").html(data);
-                    });
+                    let userfield = document.getElementById("username");
+                    if (userfield.value) {
+                        $.get("/returnAJAX?username=" + userfield.value, function(data, status){
+                            $("div").html(data);
+                        });
+                    } else {
+                        $("div").html('no input');
+                    }
                 });
             });
         </script>
     </head>
     <body>
 
-        <button>Send an HTTP GET request to a page and get the result back</button>
-        <div>lalala</div>
+        <form action="">
+            <input type="text", id="username" name="username"><br><br>
+        </form>
+        <button>get link for user</button>
+        <div>[Empty until first submission]</div>
     </body>
 </html>
