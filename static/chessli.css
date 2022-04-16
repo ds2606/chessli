@@ -113,7 +113,6 @@ body {
 /* CUSTOM STYLES */
 
 #url-textbox {
-    color: #5fd787;
     border: 2px solid;
     padding: 0.5em 1em;
     font-size: 1.25em;
@@ -122,59 +121,10 @@ body {
     opacity: 0%;
 }
 
-#no-user {
-    color: #ff5f5f;
-    border: 2px solid;
-    padding: 0.5em 1em;
-    font-size: 1.25em;
-    opacity: 100%;
-}
-
-a {
+a, .hover-2 {
   outline: none;
   text-decoration: none;
   padding: 2px 1px 0;
-}
-
-#lichess-link:link {
   color: #5fd787;
-}
-
-#lichess-link:visited {
   color: #5fd787;
-;
-}
-
-#lichess-link:focus {
-  border-bottom: 0px solid;
-}
-
-#lichess-link:hover {
-  border-bottom: 0px solid;
-}
-
-#lichess-link:active {
-  background: #265301;
-  color: #CDFEAA;
-}
-
-#no-user-link:link {
-    color: #ff5f5f;
-}
-
-#no-user-link:visited {
-    color: #ff5f5f;
-}
-
-#no-user-link:focus {
-  border-bottom: 0px solid;
-}
-
-#no-user-link:hover {
-  border-bottom: 0px solid;
-}
-
-#no-user-link:active {
-  background: #265301;
-  color: #CDFEAA;
 }

@@ -8,8 +8,7 @@ def get_lastgame_json(player):
     try:
         recentGamesAPI = requests.get(archiveAPI).json()['archives'][-1]
     except KeyError:
-        # TODO signal error if user not found
-        return 'no no no bad bad bad'
+        return json.dumps({'error': 'invalid_username'})
     game = requests.get(recentGamesAPI).json()['games'][-1]
 
     importAPI = "https://lichess.org/api/import"

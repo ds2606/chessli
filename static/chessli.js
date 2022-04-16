@@ -2,12 +2,23 @@
 function updateView() {
     let userfield = document.getElementById("username");
     if (userfield.value) {
-        $.get("/returnAJAX?username=" + userfield.value, function(data, status){
-            $("#url-textbox").html(data);
+        $("#url-textbox").animate({opacity: 0});
+        $.get("/returnAJAX?username=" + userfield.value, function(payload, status){
+            data = jQuery.parseJSON(payload)
+            if (data.error) {
+                $("#url-textbox").html('user not found');
+                $('#url-textbox').css('color', '#ff5f5f');
+            } else {
+                $("#url-textbox").html(
+                    '<a class="hover-2" href=' + data.link + '>'
+                    + data.white + ' vs ' + data.black
+                    + '</a>'
+                );
+                $('#url-textbox').css('color', '#5fd787');
+            }
+            $("#url-textbox").animate({opacity: 1});
         });
         // do this without settimeout when I learn more about js
-        function tmp() {$("#url-textbox").animate({opacity: 1});}
-        setTimeout(tmp, 2000);
     } else {
         $("#url-textbox").animate({opacity: 0});
     }
