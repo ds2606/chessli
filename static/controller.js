@@ -1,26 +1,26 @@
 // get most recent game info from backend and update view
 function updateView() {
-    $("#url-textbox").animate({opacity: 0});
+    $("#clickbox").animate({opacity: 0});
     let userfield = document.getElementById("username");
     if (userfield.value) {
         $.get("/returnAJAX?username=" + userfield.value, function(payload, status){
             data = jQuery.parseJSON(payload)
             if (data.error) {
-                $("#url-textbox").html('user not found');
-                $('#url-textbox').css('color', '#ff5f5f');
+                $("#clickbox").html('user not found');
+                $('#clickbox').css('color', '#ff5f5f');
+                $("#clickbox").css("pointer-events", "none")
             } else {
-                $("#url-textbox").html(
-                    '<a class="hover-2" href=' + data.link + '>'
-                    + data.white + ' vs ' + data.black
-                    + '</a>'
-                );
-                $('#url-textbox').css('color', '#5fd787');
+                $("#clickbox").attr("href", data.link)
+                $("#clickbox").html(data.white + ' vs ' + data.black);
+                $('#clickbox').css('color', '#5fd787');
+                $("#clickbox").css("pointer-events", "auto")
             }
-            $("#url-textbox").animate({opacity: 1});
+            $("#clickbox").animate({opacity: 1});
         });
         // do this without settimeout when I learn more about js
     } else {
-        setTimeout(() => { $("#url-textbox").html('&nbsp;'); }, 500)
+        setTimeout(() => { $("#clickbox").html('&nbsp;'); }, 500)
+        $("#clickbox").css("pointer-events", "none")
     }
 }
 
