@@ -1,27 +1,76 @@
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- ADD FAVICON <link rel="icon" href="../../../../favicon.ico"> -->
+        <title>Chessli</title>
+        <link href="/static/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/custom_styles.css" rel="stylesheet">
+        <link href="/static/cover.css" rel="stylesheet">
+        <script src="static/chessli.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script>
             $(document).ready(function(){
-                $("button").click(function(){
+                $(".submit").click(function(){
                     let userfield = document.getElementById("username");
                     if (userfield.value) {
                         $.get("/returnAJAX?username=" + userfield.value, function(data, status){
-                            $("div").html(data);
+                            $("#url-textbox").html(data);
                         });
                     } else {
-                        $("div").html('no input');
+                        $("#url-textbox").html('no input');
                     }
                 });
             });
         </script>
     </head>
-    <body>
+    <body class="text-center">
+        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+            <header class="masthead mb-auto">
+            </header>
 
-        <form action="">
-            <input type="text", id="username" name="username"><br><br>
-        </form>
-        <button>get link for user</button>
-        <div>[Empty until first submission]</div>
+            <main role="main" class="inner cover">
+                <button id="fadebutton" style="display:none">fade in</button><br><br>
+                <h1 class="cover-heading">ChessLi</h1>
+                <p class="lead">
+                    Chess.com games, Lichess analysis. <br>Import the most
+                    recent game of any chess.com user into Lichess.</p>
+                <p class="lead">
+                    <form>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">@</span>
+                            </div>
+                            <input id="username" class="form-control" placeholder="chess.com username" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="button" class="submit btn
+                            btn-primary" value="Submit">
+        <!-- <button class="submit">get link for user</button> -->
+                        </div>
+                    </form>
+                </p>
+                <div id="url-textbox" class="container" class="link-primary">
+                    <a id="lichess-link" href="https://lichess.org">null and hidden
+                        until first input</a>
+                </div>
+                <!-- <div id="no-user" class="container" class="link-primary"> -->
+                <!--     <a id="no-user-link" href="https://lichess.org">user $username not found</a> -->
+                <!-- </div> -->
+            </main>
+
+            <footer class="mastfoot mt-auto">
+                <div class="inner">
+                    <p>Built by <a href="https://github.com/ds2606">ds2606</a>,
+                        design by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+                </div>
+            </footer>
+        </div>
+
+        <!-- <form action=""> -->
+        <!--     <input type="text", id="username" name="username"><br><br> -->
+        <!-- </form> -->
+        <button class="submit">get link for user</button>
+        <!-- <div id="url-textbox">[Empty until first submission]</div> -->
     </body>
 </html>
