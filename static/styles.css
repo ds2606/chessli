@@ -28,7 +28,7 @@ body {
 }
 
 .sitelink {
-    color: #0fd787;
+    color: #4fd787;
     outline: none;
     padding: 2px 1px 0;
     text-decoration: none;
@@ -49,4 +49,10 @@ body {
     outline: none;
     padding: 0.5em 1em;
     pointer-events: none;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#clickbox:hover {
+    background: #3a463a;
 }

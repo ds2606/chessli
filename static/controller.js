@@ -25,7 +25,7 @@ function queryUsername() {
                     // a way to directly wait for the first animation call to run
                     // updateClickbox instead of the janky settimeout use
                     updateClickbox(0, data.error, '#ff5f5f', 'none')
-                    }, 500);
+                    }, 1000);
             } else {
                 let html = data.white + ' vs ' + data.black;
                 updateClickbox(data.link, html, '#5fd787', 'auto')
