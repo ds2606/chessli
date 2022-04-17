@@ -1,14 +1,22 @@
 """ Chessli libary for Chess.com/Lichess API interaction """
 import json
+import re
 import requests
 
 
 def get_lastgame_json(player):
+    # ensure valid username
+    if not re.compile("^[\w\-]{3,25}$").match(player):
+        return json.dumps({'error': 'invalid username'})
+
     archiveAPI = "https://api.chess.com/pub/player/" + player + "/games/archives"
     try:
         recentGamesAPI = requests.get(archiveAPI).json()['archives'][-1]
     except KeyError:
-        return json.dumps({'error': 'invalid_username'})
+        return json.dumps({'error': 'user ' + player + ' not found'})
+    except IndexError:
+        return json.dumps({'error': player + ' has played no games'})
+
     game = requests.get(recentGamesAPI).json()['games'][-1]
 
     importAPI = "https://lichess.org/api/import"

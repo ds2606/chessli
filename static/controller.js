@@ -24,7 +24,7 @@ function queryUsername() {
                     // makes sure this comes after animation out, maybe see if there is
                     // a way to directly wait for the first animation call to run
                     // updateClickbox instead of the janky settimeout use
-                    updateClickbox(0, 'user not found', '#ff5f5f', 'none')
+                    updateClickbox(0, data.error, '#ff5f5f', 'none')
                     }, 500);
             } else {
                 let html = data.white + ' vs ' + data.black;
