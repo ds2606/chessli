@@ -1,11 +1,11 @@
+// catch clicks for username submission
 $(document).ready(function(){
     $(".submit").click(queryUsername);
 });
 
-// catch 'enter' key-presses
+// catch 'enter' key-presses for username submission
 $(document).on("keydown", "form", function(event) {
-    if ( event.which == 13 ) // Enter key = keycode 13
-    {
+    if ( event.which == 13 ) {  // Enter key = keycode 13
         queryUsername();
         // $("#username").val('');
         return false;

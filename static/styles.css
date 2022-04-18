@@ -21,27 +21,30 @@ body {
 
 .cover-heading {
     font-family: 'Varela Round', sans-serif;
-    color: rgba(195, 255, 195, .8);
+    color: #c3ffc3cc;
     margin-bottom: 0.25rem;
 }
 
 .translucent {
-    color: rgba(255, 255, 255, .5);
+    color: #ffffff80;
 }
 
 form {
     margin-top: 2.75rem;
 }
 
+.form-control:focus {
+    box-shadow: 0 0 0 0.1rem #6487f54d;
+}
+
 p.lead {
     /* font-family: 'Varela Round', sans-serif; */
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: font-family: 'Lato', sans-serif;1rem;
+    color: #ffffffd9;
     font-family: 'Lato', sans-serif;
 }
 
 .submit {
-    color: #ddd;
+    color: #eee;
     background: #6487F5;
     border-color: #6487F5;
     border-radius: 0 0.25rem 0.25rem 0;
@@ -70,7 +73,7 @@ p.lead {
 }
 
 .sitelink:hover {
-    color: rgba(200, 255, 200, .9);
+    color: #c8ffc8e6;
     text-decoration: none;
 }
 
