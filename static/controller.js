@@ -39,7 +39,7 @@ function queryUsername() {
 
 function updateClickbox(link, html, color, pointerevents) {
     if (link) { $("#clickbox").attr("href", data.link); console.log(link); }
-    else { $("#clickbox").removeAttr("href"); console.log('wfwqfqewf') }
+    else { $("#clickbox").removeAttr("href"); }
     $("#clickbox").html(html)
     $('#clickbox').css('color', color);
     $("#clickbox").css("pointer-events", pointerevents);
