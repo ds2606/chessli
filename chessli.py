@@ -12,6 +12,6 @@ app = Flask(
 def base():
     return render_template('index.html')
 
-@app.route('/returnAJAX')
+@app.route('/get_game')
 def returnAJAX():
     return get_lastgame_json(request.args['username'])

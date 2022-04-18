@@ -18,11 +18,17 @@ def get_lastgame_json(player):
         return json.dumps({'error': 'user ' + player + ' not found'})
     except IndexError:
         return json.dumps({'error': player + ' has played no games'})
+    except json.JSONDecodeError:
+        return json.dumps({'error': 'chess.com: too many requests'})
     game = requests.get(gamesAPI).json()['games'][-1]
 
     # import game to Lichess and get URL
     importAPI = "https://lichess.org/api/import"
-    gameURL = requests.post(importAPI, data={'pgn': game['pgn']}).json()['url']
+    try:
+        gameURL = requests.post(importAPI, data={'pgn': game['pgn']}).json()['url']
+    except json.JSONDecodeError:
+        return json.dumps({'error': 'lichess: too many requests'})
+
 
     # return payload to frontend
     payload = {

@@ -1,13 +1,12 @@
 // catch clicks for username submission
 $(document).ready(function(){
-    $(".submit").click(queryUsername);
+    $("#submit").click(queryUsername);
 });
 
 // catch 'enter' key-presses for username submission
 $(document).on("keydown", "form", function(event) {
     if ( event.which == 13 ) {  // Enter key = keycode 13
         queryUsername();
-        // $("#username").val('');
         return false;
     }
 });
@@ -17,14 +16,15 @@ function queryUsername() {
     $("#clickbox").animate({opacity: 0});
     let userfield = document.getElementById("username");
     if (userfield.value) {
-        $.get("/returnAJAX?username=" + userfield.value, function(payload, status){
+        if (rateLimitRequests()) return;
+        $.get("/get_game?username=" + userfield.value, function(payload, status) {
             data = jQuery.parseJSON(payload)
             if (data.error) {
+                // makes sure this comes after animation out, maybe see if there is
+                // a way to directly wait for the first animation call to run
+                // updateClickbox instead of the janky settimeout use
                 setTimeout(() => {
-                    // makes sure this comes after animation out, maybe see if there is
-                    // a way to directly wait for the first animation call to run
-                    // updateClickbox instead of the janky settimeout use
-                    updateClickbox(0, data.error, '#ff5f5f', 'none')
+                        updateClickbox(0, data.error, '#ff5f5f', 'none')
                     }, 1000);
             } else {
                 let html = data.white + ' vs ' + data.black;
@@ -46,3 +46,24 @@ function updateClickbox(link, html, color, pointerevents) {
     $("#clickbox").animate({opacity: 1});
 }
 
+// Rate limit user requests. This would be more robust if checked on the backend so user
+// can't just disable JS and then spam.
+let job_running = 0;
+function rateLimitRequests() {
+    // manage global tracker for requests
+    if (job_running) return true;
+    job_running = 1;
+
+    // disable submits for duration of job
+    submit_btn = document.getElementById("submit");
+    submit_btn.disabled = true;
+    submit_btn.style.pointerEvents = "none";
+
+    // restore submits after job is completed
+    setTimeout(() => {
+        job_running = 0;
+        submit_btn.disabled = false;
+        submit_btn.style.pointerEvents = "auto";
+    }, 6000);
+    return false;
+}
