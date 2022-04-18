@@ -42,16 +42,23 @@ p.lead {
 
 .submit {
     color: #ddd;
-    background: rgba(100, 135, 245, 0.8);
-    border-color: rgba(100, 135, 245, 0.8);
+    background: #6487F5;
+    border-color: #6487F5;
     border-radius: 0 0.25rem 0.25rem 0;
-    transition: .3s;
+    transition: .2s;
 }
 
 .submit:hover {
     color: #eee;
-    background: rgba(100, 155, 255, 1);
-    border-color: rgba(100, 155, 255, 1);
+    background: #79A9FF;
+    border-color: #79A9FF;
+}
+
+.submit:active {
+    color: #eee;
+    background: #5163cb;
+    border-color: #5163cb;
+
 }
 
 .sitelink {
@@ -86,6 +93,6 @@ p.lead {
 /* attributes need to be `!important` to override jquery element styling */
 #clickbox:hover {
     background: #3a463a;
-    color: rgba(170, 255, 170, 1) !important;
+    color: #aaffaa !important;
     border-color: #4fd787 !important;
 }
