@@ -64,6 +64,6 @@ function rateLimitRequests() {
         job_running = 0;
         submit_btn.disabled = false;
         submit_btn.style.pointerEvents = "auto";
-    }, 6000);
+    }, 5000);
     return false;
 }
