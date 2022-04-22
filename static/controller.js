@@ -17,7 +17,7 @@ function queryUsername() {
     let userfield = document.getElementById("username");
     if (userfield.value) {
         if (rateLimitRequests()) return;
-        $.get("/get_game?username=" + userfield.value, function(payload, status) {
+        $.get("/" + userfield.value, function(payload, status) {
             data = jQuery.parseJSON(payload)
             if (data.error) {
                 // makes sure this comes after animation out, maybe see if there is

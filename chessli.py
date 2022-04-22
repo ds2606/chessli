@@ -1,5 +1,5 @@
 """ base Flask app for Chessli """
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 from chessli_lib import get_lastgame_json
 
 # Create Flask's `app` object
@@ -12,6 +12,6 @@ app = Flask(
 def base():
     return render_template('index.html')
 
-@app.route('/get_game')
-def returnAJAX():
-    return get_lastgame_json(request.args['username'])
+@app.route('/<username>')
+def returnAJAX(username):
+    return get_lastgame_json(username)
