@@ -1,50 +1,84 @@
+/* Chessli styling (inspired by bootstrap 'cover' example) */
+
+
+/* ---------- fonts import ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Varela+Round&display=swap');
+
+
+
+/* ---------- global organization ---------- */
 html, body {
     height: 100%;
     background-color: #333;
 }
 
 body {
-    display: -ms-flexbox;
-    display: -webkit-box;
     display: flex;
-    -ms-flex-pack: center;
-    -webkit-box-pack: center;
     justify-content: center;
-    color: #fff;
+    color: #FFF;
+    text-align: center;
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
     box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
 }
 
-.cover-container {
+
+.page-content {
+    width: 80%;
     max-width: 42em;
+    display: flex;
+    flex-direction: column;
 }
 
-.cover-heading {
+
+/* ---------- main content ---------- */
+h1 {
     font-family: 'Varela Round', sans-serif;
-    color: #c3ffc3cc;
+    color: #C3FFC3CC;
     margin-bottom: 0.25rem;
 }
 
-.translucent {
-    color: #ffffff80;
+p.lead {
+    color: #DEDEDE;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
 }
+
+footer p {
+    color: #909090;
+}
+
+.sitelink {
+    color: #4FD787;
+    outline: none;
+    padding: 2px 1px 0;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.sitelink:hover {
+    color: #C8FFC8E6;
+    text-decoration: none;
+}
+
+
+/* ---------- query ---------- */
 
 form {
     margin-top: 2.75rem;
 }
 
-.form-control:focus {
-    box-shadow: 0 0 0 0.1rem #6487f54d;
+@media (max-width: 674px) {
+    form {
+        margin-top: 3rem;
+    }
 }
 
-p.lead {
-    /* font-family: 'Varela Round', sans-serif; */
-    color: #ffffffd9;
-    font-family: 'Lato', sans-serif;
+.form-control:focus {
+    box-shadow: 0 0 0 0.1rem #6487F54D;
 }
 
 .submit {
-    color: #eee;
+    color: #EEE;
     background: #6487F5;
     border-color: #6487F5;
     border-radius: 0 0.25rem 0.25rem 0;
@@ -52,7 +86,7 @@ p.lead {
 }
 
 .submit:hover {
-    color: #eee;
+    color: #EEE;
     background: #79A9FF;
     border-color: #79A9FF;
 }
@@ -64,21 +98,11 @@ p.lead {
 
 }
 
-.sitelink {
-    color: #4fd787;
-    outline: none;
-    padding: 2px 1px 0;
-    text-decoration: none;
-    transition: 0.2s;
-}
 
-.sitelink:hover {
-    color: #c8ffc8e6;
-    text-decoration: none;
-}
+/*---------- result display ---------- */
 
 #clickbox {
-    color: #4fd787;
+    color: #4FD787;
     background: none;
     border-radius: 0.5em;
     border: 2px solid;
@@ -93,9 +117,9 @@ p.lead {
     transition: 0.3s;
 }
 
-/* attributes need to be `!important` to override jquery element styling */
+/* need '!important' to override jquery inline-styling */
 #clickbox:hover {
-    background: #3a463a;
-    color: #aaffaa !important;
-    border-color: #4fd787 !important;
+    background: #3A463A;
+    color: #AAFFAA !important;
+    border-color: #4FD787 !important;
 }

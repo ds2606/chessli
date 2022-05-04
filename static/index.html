@@ -2,53 +2,45 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="description" content="Lichess analysis for chess.com games">
+        <meta name="author" content="Daniel Schreck, github.com/ds2606">
         <link rel="icon" type="image/png" href="/static/favicon.png">
-        <title>chessli</title>
+        <title>Chessli</title>
 
-        <!-- bootstrap -->
+        <!-- bootstrap/jQuery -->
         <link href="/static/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-        <!-- google fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Varela+Round&display=swap" rel="stylesheet">
 
         <!-- local static assets -->
         <link href="/static/styles.css" rel="stylesheet">
         <script src="/static/controller.js"></script>
     </head>
-    <body class="text-center">
-        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-            <header class="masthead mb-auto">
-            </header>
+    <body>
+        <div class="page-content">
+            <div class="mb-auto"></div>
 
-            <main role="main" class="inner cover">
+            <main>
                 <h1 class="cover-heading">CHESSLI</h1>
                 <p class="lead">
                     Chess.com games, Lichess analysis.<br>
-                    Import the most recent game of any chess.com user into
-                    Lichess.<br>
-                <p>
+                    Import the most recent game of any chess.com user into Lichess.<br>
+                </p>
+                <div>
                     <form>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">@</span>
+                                <span class="input-group-text">@</span>
                             </div>
-                            <input id="username" class="form-control" placeholder="chess.com user" aria-label="Username" aria-describedby="basic-addon1" spellcheck="false">
+                            <input id="username" class="form-control" placeholder="chess.com user" spellcheck="false">
                             <input type="button" id="submit" class="submit btn" value="submit">
                         </div>
                     </form>
-                </p>
+                </div>
                 <a class="container" id="clickbox">&nbsp;</a>
             </main>
 
             <footer class="mt-auto">
-                <p class="translucent">
+                <p>
                     Built by <a class="sitelink" href="https://github.com/ds2606">ds2606</a>
                 </p>
             </footer>
