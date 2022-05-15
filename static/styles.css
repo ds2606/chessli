@@ -63,6 +63,11 @@ footer p {
 
 /* ---------- query ---------- */
 
+.user-interface {
+    max-width: 80%;
+    margin: auto;
+}
+
 form {
     margin-top: 2.75rem;
 }

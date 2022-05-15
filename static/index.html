@@ -25,18 +25,20 @@
                     Chess.com games, Lichess analysis.<br>
                     Import the most recent game of any chess.com user into Lichess.<br>
                 </p>
-                <div>
-                    <form>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
+                <div class='user-interface'>
+                    <div>
+                        <form>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">@</span>
+                                </div>
+                                <input id="username" class="form-control" placeholder="chess.com user" spellcheck="false">
+                                <input type="button" id="submit" class="submit btn" value="submit">
                             </div>
-                            <input id="username" class="form-control" placeholder="chess.com user" spellcheck="false">
-                            <input type="button" id="submit" class="submit btn" value="submit">
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+                    <a class="container" id="clickbox">&nbsp;</a>
                 </div>
-                <a class="container" id="clickbox">&nbsp;</a>
             </main>
 
             <footer class="mt-auto">
